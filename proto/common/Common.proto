@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package CustomerDetailGrpcService;
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.customer_detail";
+
+message ApiError {
+  string exception_name = 1;
+  string error_message = 2;
+}
+
+message RequestContext {
+  // this proto message is created for every request to contain a context
+  // in case in the future I implement user log in, we might have to add client_id as part of the request context
+  // if I don't define this proto message I would have to go through every request and add a client_id
+
+  string request_id = 1; // uuid
+}
+
+message ResponseContext {
+  // this proto message is created for every request to contain a context
+  // in case in the future I implement user log in, we might have to add client_id as part of the request context
+  // if I don't define this proto message I would have to go through every request and add a client_id
+
+  string request_id = 1; // reference the request id
+  ApiError error = 2;
+}

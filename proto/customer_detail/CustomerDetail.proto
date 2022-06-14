@@ -1,0 +1,20 @@
+// this file is used to keep model classes related to customer detail
+syntax = "proto3";
+
+package CustomerDetail;
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.customer_detail";
+
+message Customer {
+  string customerId = 1;
+  string name = 2 ;
+  string contactName = 3;
+  string contactNumber = 4;
+  string contactMobileNumber = 5;
+  string faxNumber = 6;
+  string postalCode = 7;
+  string address = 8;
+  string taxId = 9;
+  string receiver = 10;
+  string note = 11;
+}

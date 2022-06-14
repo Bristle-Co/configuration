@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package CustomerDetailGrpcService;
+
+// a java file per class
+option java_multiple_files = true;
+
+// this java specific property overwrites the "package" declaration
+option java_package = "com.bristle.proto.customer_detail";
+
+// I specify the <protoSourceRoot> as ./configuration/proto and included the separated folders
+// the protobuf plug in should search all the directories I included and find these included .proto files
+import "customer-detail/CustomerDetail.proto";
+import "common/Common.proto";
+
+message AddCustomerRequest {
+  RequestContext request_context = 1;
+  CustomerDetail.Customer customer = 2;
+}
+
+message AddCustomerResponse {
+  ResponseContext response_context = 1;
+  CustomerDetail.Customer customer = 2;
+}
+
+message GetAllCustomersRequest {
+  RequestContext request_context = 1;
+}
+
+message GetAllCustomersResponse {
+  ResponseContext request_context = 1;
+  repeated CustomerDetail.Customer customer = 2;
+}
+
+service CustomerDetailService {
+  rpc addCustomer(AddCustomerRequest) returns (AddCustomerResponse);
+  rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse);
+}
+
+
