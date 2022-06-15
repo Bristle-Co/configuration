@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package CustomerDetailGrpcService;
 option java_multiple_files = true;
-option java_package = "com.bristle.proto.customer_detail";
+option java_package = "com.bristle.proto.common";
 
 message ApiError {
   string exception_name = 1;

@@ -10,7 +10,7 @@ option java_package = "com.bristle.proto.customer_detail";
 
 // I specify the <protoSourceRoot> as ./configuration/proto and included the separated folders
 // the protobuf plug in should search all the directories I included and find these included .proto files
-import "customer-detail/CustomerDetail.proto";
+import "customer_detail/CustomerDetail.proto";
 import "common/Common.proto";
 
 message AddCustomerRequest {
@@ -28,7 +28,7 @@ message GetAllCustomersRequest {
 }
 
 message GetAllCustomersResponse {
-  ResponseContext request_context = 1;
+  ResponseContext response_context = 1;
   repeated CustomerDetail.Customer customer = 2;
 }
 
