@@ -32,9 +32,20 @@ message GetAllCustomersResponse {
   repeated CustomerDetail.Customer customer = 2;
 }
 
+message DeleteCustomerRequest {
+  RequestContext request_context = 1;
+  string customer_id = 2;
+}
+
+message DeleteCustomerResponse {
+  ResponseContext response_context = 1;
+  CustomerDetail.Customer deleted_customer = 2;
+}
+
 service CustomerDetailService {
   rpc upsertCustomer(UpsertCustomerRequest) returns (UpsertCustomerResponse);
   rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse);
+  rpc deleteCustomerById(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
 
