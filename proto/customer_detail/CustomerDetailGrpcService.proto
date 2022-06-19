@@ -45,7 +45,7 @@ message DeleteCustomerResponse {
 service CustomerDetailService {
   rpc upsertCustomer(UpsertCustomerRequest) returns (UpsertCustomerResponse);
   rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse);
-  rpc deleteCustomerById(DeleteCustomerRequest) returns (DeleteCustomerResponse);
+  rpc deleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse);
 }
 
 
