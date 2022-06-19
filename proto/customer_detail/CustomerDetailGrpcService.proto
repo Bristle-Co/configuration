@@ -13,12 +13,12 @@ option java_package = "com.bristle.proto.customer_detail";
 import "customer_detail/CustomerDetail.proto";
 import "common/Common.proto";
 
-message AddCustomerRequest {
+message UpsertCustomerRequest {
   RequestContext request_context = 1;
   CustomerDetail.Customer customer = 2;
 }
 
-message AddCustomerResponse {
+message UpsertCustomerResponse {
   ResponseContext response_context = 1;
   CustomerDetail.Customer customer = 2;
 }
@@ -33,7 +33,7 @@ message GetAllCustomersResponse {
 }
 
 service CustomerDetailService {
-  rpc addCustomer(AddCustomerRequest) returns (AddCustomerResponse);
+  rpc upsertCustomer(UpsertCustomerRequest) returns (UpsertCustomerResponse);
   rpc getAllCustomers(GetAllCustomersRequest) returns (GetAllCustomersResponse);
 }
 
