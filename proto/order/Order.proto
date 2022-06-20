@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package Order;
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.order";
+
+message Order {
+  string order_id = 1;
+  string customer_order_id = 2;
+  string customer_id = 3;
+  string due_date = 4;
+  string note = 5;
+  bool is_done_issuing_tickets = 6;
+  repeated Product product = 7;
+}
+
+message Product {
+  string model = 1;
+  int32 quantity = 2;
+  int64 price = 3;
+}

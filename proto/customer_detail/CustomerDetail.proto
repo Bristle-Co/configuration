@@ -6,13 +6,13 @@ option java_multiple_files = true;
 option java_package = "com.bristle.proto.customer_detail";
 
 message Customer {
-  string customerId = 1;
+  string customer_id = 1;
   string name = 2 ;
-  string contactName = 3;
-  string contactNumber = 4;
-  string contactMobileNumber = 5;
-  string faxNumber = 6;
-  string postalCode = 7;
+  string contact_name = 3;
+  string contact_number = 4;
+  string contact_mobile_number = 5;
+  string fax_number = 6;
+  string postal_code = 7;
   string address = 8;
   string taxId = 9;
   string receiver = 10;
