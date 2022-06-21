@@ -10,7 +10,7 @@ message Order {
   string customer_id = 3;
   string due_date = 4;
   string note = 5;
-  bool is_done_issuing_tickets = 6;
+  string finished_issuing_tickets_at = 6;
   repeated Product product = 7;
 }
 
