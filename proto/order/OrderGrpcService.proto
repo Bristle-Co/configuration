@@ -1,14 +1,45 @@
 syntax = "proto3";
 
-package OrderService;
+package Order;
 
-// a java file per class
 option java_multiple_files = true;
+option java_package = "com.bristle.proto.order";
 
-// this java specific property overwrites the "package" declaration
-option java_package = "com.bristle.proto.customer_detail";
-
-// I specify the <protoSourceRoot> as ./configuration/proto and included the separated folders
-// the protobuf plug in should search all the directories I included and find these included .proto files
-import "customer_detail/CustomerDetail.proto";
 import "common/Common.proto";
+import "order/Order.proto";
+
+message UpsertOrderRequest {
+  Common.RequestContext request_context = 1;
+  Order order = 2;
+}
+
+message UpsertOrderResponse {
+  Common.ResponseContext response_context = 1;
+  Order order = 2;
+}
+
+message GetOrderRequest {
+  Common.RequestContext request_context = 1;
+  OrderFilter filter = 2;
+}
+
+message GetOrderResponse {
+  Common.ResponseContext response_context = 1;
+  repeated Order order = 2;
+}
+
+message DeleteOrderRequest {
+  Common.RequestContext request_context = 1;
+  string order_id = 2;
+}
+
+message DeleteOrderResponse {
+  Common.ResponseContext response_context = 1;
+  Order deleted_order = 2;
+}
+
+service OrderService {
+  rpc upsertOrder(UpsertOrderRequest) returns (UpsertOrderResponse);
+  rpc getOrders(GetOrderRequest) returns (GetOrderResponse);
+  rpc deleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse);
+}

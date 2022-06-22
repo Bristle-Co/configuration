@@ -10,12 +10,22 @@ message Order {
   string customer_id = 3;
   string due_date = 4;
   string note = 5;
-  string finished_issuing_tickets_at = 6;
-  repeated Product product = 7;
+  string delivered_at = 6;
+  repeated ProductEntry product_entry = 7;
 }
 
-message Product {
+message ProductEntry {
+  // we can add more fields in the future
   string model = 1;
   int32 quantity = 2;
   int64 price = 3;
 }
+
+message OrderFilter {
+  string order_id = 1;
+  string customer_order_id = 2;
+  string customer_id = 3;
+  string due_date_from = 4;
+  string due_date_to = 5;
+}
+
