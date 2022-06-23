@@ -5,12 +5,12 @@ option java_multiple_files = true;
 option java_package = "com.bristle.proto.order";
 
 message Order {
-  string order_id = 1;
+  int32 order_id = 1;
   string customer_order_id = 2;
   string customer_id = 3;
-  string due_date = 4;
+  int64 due_date = 4; // using UNIX timestamp, this is a date
   string note = 5;
-  string delivered_at = 6;
+  int64 delivered_at = 6; // note this is a timestamp not a date
   repeated ProductEntry product_entry = 7;
 }
 
@@ -18,14 +18,15 @@ message ProductEntry {
   // we can add more fields in the future
   string model = 1;
   int32 quantity = 2;
-  int64 price = 3;
+  int32 price = 3; // we won't have something with a higher price than $2,147,483,647 (0x7FFFFFFF)
+  string product_ticket_id = 4;
 }
 
 message OrderFilter {
   string order_id = 1;
   string customer_order_id = 2;
   string customer_id = 3;
-  string due_date_from = 4;
-  string due_date_to = 5;
+  int64 due_date_from = 4;
+  int64 due_date_to = 5;
 }
 
