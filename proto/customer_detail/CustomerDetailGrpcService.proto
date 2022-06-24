@@ -14,32 +14,32 @@ import "customer_detail/CustomerDetail.proto";
 import "common/Common.proto";
 
 message UpsertCustomerRequest {
-  RequestContext request_context = 1;
-  CustomerDetail.Customer customer = 2;
+  Common.RequestContext request_context = 1;
+  Customer customer = 2;
 }
 
 message UpsertCustomerResponse {
-  ResponseContext response_context = 1;
-  CustomerDetail.Customer customer = 2;
+  Common.ResponseContext response_context = 1;
+  Customer customer = 2;
 }
 
 message GetAllCustomersRequest {
-  RequestContext request_context = 1;
+  Common.RequestContext request_context = 1;
 }
 
 message GetAllCustomersResponse {
-  ResponseContext response_context = 1;
-  repeated CustomerDetail.Customer customer = 2;
+  Common.ResponseContext response_context = 1;
+  repeated Customer customer = 2;
 }
 
 message DeleteCustomerRequest {
-  RequestContext request_context = 1;
+  Common.RequestContext request_context = 1;
   string customer_id = 2;
 }
 
 message DeleteCustomerResponse {
-  ResponseContext response_context = 1;
-  CustomerDetail.Customer deleted_customer = 2;
+  Common.ResponseContext response_context = 1;
+  Customer deleted_customer = 2;
 }
 
 service CustomerDetailService {

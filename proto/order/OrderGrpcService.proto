@@ -5,8 +5,9 @@ package Order;
 option java_multiple_files = true;
 option java_package = "com.bristle.proto.order";
 
-import "common/Common.proto";
 import "order/Order.proto";
+import "common/Common.proto";
+
 
 message UpsertOrderRequest {
   Common.RequestContext request_context = 1;
