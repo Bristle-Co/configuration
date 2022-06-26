@@ -16,10 +16,11 @@ message Order {
 
 message ProductEntry {
   // we can add more fields in the future
-  string model = 1;
-  int32 quantity = 2;
-  int32 price = 3; // we won't have something with a higher price than $2,147,483,647 (0x7FFFFFFF)
-  string product_ticket_id = 4;
+  string product_entry_id = 1;
+  string model = 2;
+  int32 quantity = 3;
+  int32 price = 4; // we won't have something with a higher price than $2,147,483,647 (0x7FFFFFFF)
+  string product_ticket_id = 5;
 }
 
 message OrderFilter {
