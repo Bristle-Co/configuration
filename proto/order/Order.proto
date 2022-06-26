@@ -11,7 +11,8 @@ message Order {
   int64 due_date = 4; // using UNIX timestamp, this is a date
   string note = 5;
   int64 delivered_at = 6; // note this is a timestamp not a date
-  repeated ProductEntry product_entry = 7;
+  int64 issued_at = 7;
+  repeated ProductEntry product_entry = 8;
 }
 
 message ProductEntry {
