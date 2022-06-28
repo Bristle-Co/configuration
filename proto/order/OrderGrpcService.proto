@@ -31,7 +31,7 @@ message GetOrderResponse {
 
 message DeleteOrderRequest {
   Common.RequestContext request_context = 1;
-  string order_id = 2;
+  int32 order_id = 2;
 }
 
 message DeleteOrderResponse {
