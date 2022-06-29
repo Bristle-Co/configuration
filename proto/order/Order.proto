@@ -30,6 +30,7 @@ message OrderFilter {
   string customer_id = 3;
   int64 due_date_from = 4;
   int64 due_date_to = 5;
-  int64 issued_after = 6;
+  int64 issued_at_from = 6;
+  int64 issued_at_to = 7;
 }
 

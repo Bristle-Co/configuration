@@ -19,12 +19,12 @@ message UpsertOrderResponse {
   Order order = 2;
 }
 
-message GetOrderRequest {
+message GetOrdersRequest {
   Common.RequestContext request_context = 1;
   OrderFilter filter = 2;
 }
 
-message GetOrderResponse {
+message GetOrdersResponse {
   Common.ResponseContext response_context = 1;
   repeated Order order = 2;
 }
@@ -41,6 +41,6 @@ message DeleteOrderResponse {
 
 service OrderService {
   rpc upsertOrder(UpsertOrderRequest) returns (UpsertOrderResponse);
-  rpc getOrders(GetOrderRequest) returns (GetOrderResponse);
+  rpc getOrders(GetOrdersRequest) returns (GetOrdersResponse);
   rpc deleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse);
 }

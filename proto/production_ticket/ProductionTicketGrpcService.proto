@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package ProductionTicket;
+
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.production_ticket";
+
+import "production_ticket/ProductionTicket.proto";
+import "common/Common.proto";
+
+
+message UpsertProductionTicketRequest {
+  Common.RequestContext request_context = 1;
+  ProductionTicket production_ticket = 2;
+}
+
+message UpsertProductionTicketResponse {
+  Common.ResponseContext response_context = 1;
+  ProductionTicket production_ticket = 2;
+}
+
+message GetProductionTicketsRequest {
+  Common.RequestContext request_context = 1;
+  ProductionTicketFilter filter = 2;
+}
+
+message GetProductionTicketsResponse {
+  Common.ResponseContext response_context = 1;
+  repeated ProductionTicket production_ticket = 2;
+}
+
+message DeleteProductionTicketRequest {
+  Common.RequestContext request_context = 1;
+  int32 production_ticket_id = 2;
+}
+
+message DeleteProductionTicketResponse {
+  Common.ResponseContext response_context = 1;
+  ProductionTicket production_ticket = 2;
+}
+
+service OrderService {
+  rpc upsertProductionTicket(UpsertProductionTicketRequest) returns (UpsertProductionTicketResponse);
+  rpc getProductionTickets(GetProductionTicketsRequest) returns (GetProductionTicketsResponse);
+  rpc deleteProductionTicket(DeleteProductionTicketRequest) returns (DeleteProductionTicketResponse);
+}
