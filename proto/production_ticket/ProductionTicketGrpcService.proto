@@ -39,7 +39,7 @@ message DeleteProductionTicketResponse {
   ProductionTicket production_ticket = 2;
 }
 
-service OrderService {
+service ProductionTicketService {
   rpc upsertProductionTicket(UpsertProductionTicketRequest) returns (UpsertProductionTicketResponse);
   rpc getProductionTickets(GetProductionTicketsRequest) returns (GetProductionTicketsResponse);
   rpc deleteProductionTicket(DeleteProductionTicketRequest) returns (DeleteProductionTicketResponse);

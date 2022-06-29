@@ -25,9 +25,9 @@ message ProductEntry {
 }
 
 message OrderFilter {
-  int32 order_id = 1;
-  string customer_order_id = 2;
-  string customer_id = 3;
+  int32 order_id = 1; // must match
+  string customer_order_id = 2; // must match
+  string customer_id = 3; // LIKE %:input%
   int64 due_date_from = 4;
   int64 due_date_to = 5;
   int64 issued_at_from = 6;

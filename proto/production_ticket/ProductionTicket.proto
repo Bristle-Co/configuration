@@ -35,11 +35,11 @@ message ProductionTicket {
 }
 
 message ProductionTicketFilter {
-  int32 ticket_id = 1;
-  string customer_id = 2;
-  string bristle_type = 5;
-  string model = 6;
-  string product_name = 7;
+  int32 ticket_id = 1; // must match
+  string customer_id = 2; // LIKE %:input%
+  string bristle_type = 5; // must match
+  string model = 6; // LIKE %:input%, need review on this, this field can be quite long
+  string product_name = 7; // LIKE %:input%
   int64 due_date_from = 8;
   int64 due_date_to = 9;
   int64 issued_at_from = 10;
