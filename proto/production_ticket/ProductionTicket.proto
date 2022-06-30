@@ -7,7 +7,7 @@ option java_package = "com.bristle.proto.production_ticket";
 message ProductionTicket {
   int32 ticket_id = 1;
   string customer_id = 2;
-  int64 dueDate = 3;
+  int64 due_date = 3;
   string product_name = 4;
   string bristle_type = 5;
   string model = 6;
