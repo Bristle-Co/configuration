@@ -35,9 +35,11 @@ message ProductionTicket {
 }
 
 message ProductionTicketFilter {
-  int32 ticket_id = 1; // must match
-  string customer_id = 2; // LIKE %:input%
-  string bristle_type = 5; // must match
+  int32 page_index = 1;
+  int32 page_size = 2;
+  int32 ticket_id = 3; // must match
+  string customer_id = 4; // LIKE %:input%
+  string bristle_type = 5; // LIKE %:input%, need review with mom, is LIKE really needed to be used or EQUAL is fine
   string model = 6; // LIKE %:input%, need review on this, this field can be quite long
   string product_name = 7; // LIKE %:input%
   int64 due_date_from = 8;
