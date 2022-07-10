@@ -18,3 +18,11 @@ message Customer {
   string receiver = 10;
   string note = 11;
 }
+
+message CustomerFilter {
+  string customer_id = 1; // LIKE %:input%
+  string name = 2 ; // LIKE %:input%
+  string contact_name = 3; // LIKE %:input%
+  string contact_number = 4; // LIKE %:input%
+  string address = 8; // LIKE %:input%
+}

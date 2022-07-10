@@ -22,6 +22,8 @@ message UpsertOrderResponse {
 message GetOrdersRequest {
   Common.RequestContext request_context = 1;
   OrderFilter filter = 2;
+  int32 page_index = 3;
+  int32 page_size = 4;
 }
 
 message GetOrdersResponse {
