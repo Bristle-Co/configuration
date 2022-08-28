@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package User;
+
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.user";
+
+import "user/User.proto";
+import "common/Common.proto";
+
+message GetUsersRequest {
+  Common.RequestContext request_context = 1;
+}
+
+message GetUsersResponse {
+  Common.ResponseContext response_context = 1;
+  repeated User user = 2;
+}
+
+service UserService {
+  rpc getUsers(GetUsersRequest) returns (GetUsersResponse);
+}
