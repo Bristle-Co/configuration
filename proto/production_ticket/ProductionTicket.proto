@@ -32,6 +32,8 @@ message ProductionTicket {
   int64 done_packaging_at = 25;
   string packaged_by = 26;
   int64 issued_at = 27;
+  int32 order_id = 28;
+  string product_entry_id = 29;
 }
 
 message ProductionTicketFilter {
