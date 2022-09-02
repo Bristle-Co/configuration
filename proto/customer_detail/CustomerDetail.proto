@@ -24,5 +24,15 @@ message CustomerFilter {
   string name = 2 ; // LIKE %:input%
   string contact_name = 3; // LIKE %:input%
   string contact_number = 4; // LIKE %:input%
-  string address = 8; // LIKE %:input%
+  string address = 5; // LIKE %:input%
+
+  // this filter field is created for getting customer by exact id
+  // for checking if a customer already exist when creating
+  // and this must be exact since creating a customer with id "customer1" would conflict with "customer12"
+  // this problem is present because we're not using uuid as id for customer table
+  // however it is a reasonable design because when customer id is referenced in
+  // other entities like order and production ticket, we can tell whos order it is without having to fetch extra data
+  // due to the fact that mom can tell which customer it is from the customerId
+  string matching_customer_id = 6; // must match
+
 }
