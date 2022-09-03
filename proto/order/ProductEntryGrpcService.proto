@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package Order;
+
+option java_multiple_files = true;
+option java_package = "com.bristle.proto.order";
+
+import "order/Order.proto";
+import "common/Common.proto";
+
+message GetUnAssignedProductEntriesRequest {
+  Common.RequestContext request_context = 1;
+}
+
+message GetUnAssignedProductEntriesResponse {
+  Common.ResponseContext response_context = 1;
+  repeated ProductEntry product_entry = 2;
+}
+
+message PatchProductionTicketInfoRequest{
+  Common.ResponseContext request_context = 1;
+  string product_entry_id = 2; // this should always be a uuid
+  string production_ticket_id = 3; // this should always be a uuid
+  bool is_reset_to_null = 4; // when this field is true, reset the product_ticket_id of a product_entry to null
+}
+
+message PatchProductionTicketInfoResponse{
+  Common.ResponseContext response_context = 1;
+  ProductEntry product_entry = 2;
+}
+
+service ProductEntryService {
+  rpc getUnAssignedProductEntries(GetUnAssignedProductEntriesRequest) returns (GetUnAssignedProductEntriesResponse);
+  // this endpoint is used to make changes to the "product_ticket_id" column of a row in product_entries table
+  rpc patchProductionTicketInfo(PatchProductionTicketInfoRequest) returns (PatchProductionTicketInfoResponse);
+}
