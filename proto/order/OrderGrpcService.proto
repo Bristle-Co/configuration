@@ -41,18 +41,8 @@ message DeleteOrderResponse {
   Order deleted_order = 2;
 }
 
-message GetUnAssignedProductEntriesRequest {
-  Common.RequestContext request_context = 1;
-}
-
-message GetUnAssignedProductEntriesResponse {
-  Common.ResponseContext response_context = 1;
-  repeated ProductEntry product_entry = 2;
-}
-
 service OrderService {
   rpc upsertOrder(UpsertOrderRequest) returns (UpsertOrderResponse);
   rpc getOrders(GetOrdersRequest) returns (GetOrdersResponse);
   rpc deleteOrder(DeleteOrderRequest) returns (DeleteOrderResponse);
-  rpc getUnAssignedProductEntries(GetUnAssignedProductEntriesRequest) returns (GetUnAssignedProductEntriesResponse);
 }
