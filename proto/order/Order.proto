@@ -35,3 +35,13 @@ message OrderFilter {
   int64 issued_at_to = 7;
 }
 
+// this enum is defined because product entry id and unassigned filter can't
+// be applied at the same time
+enum ProductEntryFilterField {
+  UNASSIGNED = 0;
+  PRODUCT_ENTRY_ID = 1;
+}
+message ProductEntryFilter {
+  ProductEntryFilterField filter_field = 1;
+  string product_entry_id = 2;
+}

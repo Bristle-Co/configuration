@@ -8,11 +8,12 @@ option java_package = "com.bristle.proto.order";
 import "order/Order.proto";
 import "common/Common.proto";
 
-message GetUnAssignedProductEntriesRequest {
+message GetProductEntriesRequest {
   Common.RequestContext request_context = 1;
+  ProductEntryFilter filter = 2;
 }
 
-message GetUnAssignedProductEntriesResponse {
+message GetProductEntriesResponse {
   Common.ResponseContext response_context = 1;
   repeated ProductEntry product_entry = 2;
 }
@@ -30,7 +31,7 @@ message PatchProductionTicketInfoResponse{
 }
 
 service ProductEntryService {
-  rpc getUnAssignedProductEntries(GetUnAssignedProductEntriesRequest) returns (GetUnAssignedProductEntriesResponse);
+  rpc getProductEntries(GetProductEntriesRequest) returns (GetProductEntriesResponse);
   // this endpoint is used to make changes to the "product_ticket_id" column of a row in product_entries table
   rpc patchProductionTicketInfo(PatchProductionTicketInfoRequest) returns (PatchProductionTicketInfoResponse);
 }
