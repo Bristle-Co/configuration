@@ -43,5 +43,5 @@ enum ProductEntryFilterField {
 }
 message ProductEntryFilter {
   ProductEntryFilterField filter_field = 1;
-  int32 product_entry_id = 2;
+  string product_entry_id = 2;
 }
