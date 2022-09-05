@@ -21,7 +21,7 @@ message GetProductEntriesResponse {
 message PatchProductionTicketInfoRequest{
   Common.RequestContext request_context = 1;
   string product_entry_id = 2; // this should always be a uuid
-  string production_ticket_id = 3; // this should always be a uuid
+  int32 production_ticket_id = 3; // this should always be a uuid
   bool is_reset_to_null = 4; // when this field is true, reset the product_ticket_id of a product_entry to null
 }
 
