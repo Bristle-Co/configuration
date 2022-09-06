@@ -23,6 +23,7 @@ message ProductEntry {
   int32 price = 4; // we won't have something with a higher price than $2,147,483,647 (0x7FFFFFFF)
   string product_ticket_id = 5;
   int32 order_id = 6;
+  string customerId = 7;
 }
 
 message OrderFilter {
