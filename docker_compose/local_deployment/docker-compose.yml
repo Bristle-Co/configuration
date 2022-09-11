@@ -1,0 +1,53 @@
+version: "3.8"
+# This file should be executed at the software rpo folder level
+# docker-compose up
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+    ports:
+      - 8088:8088
+    environment:
+      - DB_PASSWORD=Microservice@39909204
+      - DB_USERNAME=microservice
+      - HOST=localhost
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - 8089:8089
+      - 9099:9099
+    environment:
+      - DB_PASSWORD=Microservice@39909204
+      - DB_USERNAME=microservice
+      - HOST=localhost
+  production-ticket-service:
+    build:
+      context: ./production-ticket-service
+    ports:
+      - 8087:8087
+      - 9097:9097
+    environment:
+      - DB_PASSWORD=Microservice@39909204
+      - DB_USERNAME=microservice
+      - HOST=localhost
+  order-service:
+    build:
+      context: ./order-service
+    ports:
+      - 8086:8086
+      - 9096:9096
+    environment:
+      - DB_PASSWORD=Microservice@39909204
+      - DB_USERNAME=microservice
+      - HOST=localhost
+  customer-detail-service:
+    build:
+      context: ./customer-detail-service
+    ports:
+      - 8085:8085
+      - 9095:9095
+    environment:
+      - DB_PASSWORD=Microservice@39909204
+      - DB_USERNAME=microservice
+      - HOST=localhost
