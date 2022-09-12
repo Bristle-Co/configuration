@@ -4,50 +4,77 @@ version: "3.8"
 services:
   api-gateway:
     build:
-      context: ./api-gateway
+      context: ../../../api-gateway
     ports:
       - 8088:8088
     environment:
       - DB_PASSWORD=Microservice@39909204
       - DB_USERNAME=microservice
-      - HOST=localhost
+      - HOST=host.docker.internal
+      - CUSTOMER_DETAIL_SERVICE_ADDRESS=customer-detail-service
+      - ORDER_SERVICE_ADDRESS=order-service
+      - USER_SERVICE_ADDRESS=user-service
+      - PRODUCTION_TICKET_SERVICE_ADDRESS=production-ticket-service
+    depends_on:
+      - user-service
+      - production-ticket-service
+      - order-service
+      - customer-detail-service
   user-service:
     build:
-      context: ./user-service
+      context: ../../../user-service
     ports:
       - 8089:8089
       - 9099:9099
     environment:
       - DB_PASSWORD=Microservice@39909204
       - DB_USERNAME=microservice
-      - HOST=localhost
+      - HOST=host.docker.internal
+      - CUSTOMER_DETAIL_SERVICE_ADDRESS=customer-detail-service
+      - ORDER_SERVICE_ADDRESS=order-service
+      - USER_SERVICE_ADDRESS=user-service
+      - PRODUCTION_TICKET_SERVICE_ADDRESS=production-ticket-service
   production-ticket-service:
     build:
-      context: ./production-ticket-service
+      context: ../../../production-ticket-service
     ports:
       - 8087:8087
       - 9097:9097
     environment:
       - DB_PASSWORD=Microservice@39909204
       - DB_USERNAME=microservice
-      - HOST=localhost
+      - HOST=host.docker.internal
+      - CUSTOMER_DETAIL_SERVICE_ADDRESS=customer-detail-service
+      - ORDER_SERVICE_ADDRESS=order-service
+      - USER_SERVICE_ADDRESS=user-service
+      - PRODUCTION_TICKET_SERVICE_ADDRESS=production-ticket-service
+    depends_on:
+      - order-service
   order-service:
     build:
-      context: ./order-service
+      context: ../../../order-service
     ports:
       - 8086:8086
       - 9096:9096
     environment:
       - DB_PASSWORD=Microservice@39909204
       - DB_USERNAME=microservice
-      - HOST=localhost
+      - HOST=host.docker.internal
+      - CUSTOMER_DETAIL_SERVICE_ADDRESS=customer-detail-service
+      - ORDER_SERVICE_ADDRESS=order-service
+      - USER_SERVICE_ADDRESS=user-service
+      - PRODUCTION_TICKET_SERVICE_ADDRESS=production-ticket-service
   customer-detail-service:
     build:
-      context: ./customer-detail-service
+      context: ../../../customer-detail-service
     ports:
       - 8085:8085
       - 9095:9095
     environment:
       - DB_PASSWORD=Microservice@39909204
       - DB_USERNAME=microservice
-      - HOST=localhost
+      - HOST=host.docker.internal
+      - CUSTOMER_DETAIL_SERVICE_ADDRESS=customer-detail-service
+      - ORDER_SERVICE_ADDRESS=order-service
+      - USER_SERVICE_ADDRESS=user-service
+      - PRODUCTION_TICKET_SERVICE_ADDRESS=production-ticket-service
